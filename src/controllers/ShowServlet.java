@@ -26,11 +26,11 @@ public class ShowServlet extends HttpServlet {
 	    //エンティティマネージャの生成
 	    EntityManager em =DBUtil.createEntityManger();
 	    //Taskをパラメータidの値(String型なのでintに変換)で検索し、Taskの格納
-	    Task t = em.find(Task.class, Integer.parseInt(request.getParameter("id")));
+	    Task task = em.find(Task.class, Integer.parseInt(request.getParameter("id")));
 	    //エンティティマネージャの終了
 	    em.close();
 	    //tをJSPに渡す
-	    request.setAttribute("task", t);
+	    request.setAttribute("task", task);
 	    //show.jspへ移動
 	    RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasks/show.jsp");
 	    rd.forward(request, response);
