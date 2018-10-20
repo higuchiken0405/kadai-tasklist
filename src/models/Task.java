@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @NamedQueries({
     @NamedQuery (
             //クエリ名
-            name = "getAllContents",
+            name = "getAllTasks",
             //JPQL文　Taskの全てのカラムを取得し、IDを降順で表示
             query = "SELECT t FROM Task AS t ORDER BY t.id DESC"
         )
