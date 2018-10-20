@@ -17,6 +17,24 @@
                 </li>
             </c:forEach>
         </ul>
+        <%-- ページネーション--%>
+        <div id="pagination">
+            (全 ${tasks_count} 件)<br>
+            <c:forEach var="i" begin="1" end="${((tasks_count - 1) / 5) + 1}" step="1" >
+                <c:choose>
+                    <c:when test="${i == page}">
+                        <%-- 変数iとpageが等しいなら、表示だけ --%>
+                        <c:out value="${i}" /> &nbsp;
+                    </c:when>
+                    <c:otherwise>
+                        <%-- 変数iとpageが等しくないなら、リンク付きページ表示 --%>
+                        <a href="${pageContext.request.contextPath}/index?page=${i}"><c:out value="${i}" /></a>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
+        </div>
+
         <p><a href="${pageContext.request.contextPath}/new">タスクの新規作成</a></p>
+
     </c:param>
 </c:import>

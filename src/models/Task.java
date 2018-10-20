@@ -20,6 +20,12 @@ import javax.persistence.Table;
             name = "getAllTasks",
             //JPQL文　Taskの全てのカラムを取得し、IDを降順で表示
             query = "SELECT t FROM Task AS t ORDER BY t.id DESC"
+        ),
+    @NamedQuery (
+            //クエリ名
+            name = "getTasksCount",
+            //JPQL文　Taskのレコード数を取得
+            query = "SELECT COUNT(t) FROM Task AS t"
         )
 })
 //テーブル名
