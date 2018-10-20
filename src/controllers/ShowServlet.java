@@ -25,7 +25,7 @@ public class ShowServlet extends HttpServlet {
 
 	    //エンティティマネージャの生成
 	    EntityManager em =DBUtil.createEntityManger();
-	    //Taskをパラメータid(String型なのでintに変換)の値で検索し、Taskの格納
+	    //Taskをパラメータidの値(String型なのでintに変換)で検索し、Taskの格納
 	    Task t = em.find(Task.class, Integer.parseInt(request.getParameter("id")));
 	    //エンティティマネージャの終了
 	    em.close();
