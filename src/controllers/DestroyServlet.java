@@ -42,6 +42,8 @@ public class DestroyServlet extends HttpServlet {
 	        em.getTransaction().commit();
 	        //エンティティマネージャを終了
 	        em.close();
+	        //
+	        request.getSession().setAttribute("flush", "削除が完了しました");
 	        //セッションの削除
 	        request.getSession().removeAttribute("message_id");
 	        //indexに戻る

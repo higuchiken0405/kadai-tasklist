@@ -3,6 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:import url="../layout/layout.jsp">
     <c:param name="content">
+        <%-- タスクがある場合 --%>
         <c:choose>
             <c:when test="${task != null}">
                 <h2>${task.id}の詳細ページ</h2>
@@ -10,7 +11,7 @@
                         <tbody>
                             <tr>
                                 <td>タスク内容</td>
-                                <td><c:out value="${taks.content}" /></td>
+                                <td><c:out value="${task.content}" /></td>
                             </tr>
                             <tr>
                                 <td>作成日時</td>
@@ -23,6 +24,7 @@
                         </tbody>
                     </table>
                 </c:when>
+                <%-- タスクがない場合 --%>
                 <c:otherwise>
                     <h2>タスクがありません</h2>
                 </c:otherwise>
